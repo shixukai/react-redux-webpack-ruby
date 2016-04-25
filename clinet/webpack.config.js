@@ -1,9 +1,13 @@
 var path = require('path');
 
 module.exports = {
-  entry: "./index.js",
+  entry: [
+    'webpack-dev-server/client?http://localhost:8222',
+    './index.js'
+  ],
   output: {
-  path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '/dist'),
+    publicPath: "/",
     filename: "bundle.js"
   },
   resolve: {
@@ -12,7 +16,11 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css$/, loader: "style!css" },
-      { test: /\.js|jsx$/, loader: ['babel-loader'], query: { presets: ['es2015', 'stage-3', 'react'] } }
+      {
+        test: /\.js|jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader?presets[]=es2015&presets[]=react'
+      }
     ]
   }
 };
