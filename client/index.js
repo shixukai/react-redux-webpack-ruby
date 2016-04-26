@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App';
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
+import { App, Contact, About } from './components/index';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 const routes = [
