@@ -20,8 +20,13 @@ module.exports = {
       {
         test: /\.js|jsx$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?presets[]=es2015&presets[]=react'
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react', 'stage-0'],
+          plugins: ['typecheck']
+        }
       }
-    ]
+    ],
+
   }
 };
