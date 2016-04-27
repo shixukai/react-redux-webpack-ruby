@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App, Contact, About } from './components/index';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import routes from './routes';
+import { Provider } from 'react-redux';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import configureStore from './store/configureStore';
 
-const routes = [
-  <Route path="/" component={App}>
-    <Route path="about" component={About} />
-    <Route path="contact" component={Contact} />
-  </Route>
-]
+
+const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render((
-  <Router routes={routes} history={hashHistory}>
-  </Router>
+  <Provider store={store}>
+    <Router routes={routes} history={history} />
+  </Provider>
 ), document.getElementById('rootAppContainer'));
