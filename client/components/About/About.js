@@ -1,4 +1,7 @@
 import React from 'react';
+import { createHistory } from 'history'
+
+const history = createHistory();
 
 class About extends React.Component {
   constructor(props) {
@@ -7,7 +10,10 @@ class About extends React.Component {
     this.state = {};
   }
   render() {
-    return ( <div>About</div>);
+    return ( <div>
+      About
+      <a href="#" onClick={() => history.goBack()} >ddasd </a>
+    </div>);
   }
 }
 
