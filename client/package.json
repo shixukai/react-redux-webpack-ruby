@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --watch -d --display-error-details",
     "start": "if-env NODE_ENV=production && npm run start-prod || npm run start-dev",
-    "start-dev": "webpack-dev-server  --history-api-fallback --host 127.0.0.1 --port 8222 --hot",
-    "start-prod": "webpack && node server.js",
+    "start-dev": "webpack-dev-server --inline --history-api-fallback --host 127.0.0.1 --port 8222 --hot",
+    "start-prod": "webpack -p && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
