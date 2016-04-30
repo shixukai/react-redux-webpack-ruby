@@ -7,9 +7,10 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, '/dist'),
-    publicPath: "/",
+    publicPath: __dirname + '/',
     filename: "bundle.js"
   },
+devtool: 'source-map',
   resolve: {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: ['client', 'node_modules']
@@ -23,10 +24,12 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['es2015', 'react', 'stage-0'],
-          plugins: ['typecheck']
+          plugins: [
+            'typecheck', 'transform-decorators-legacy', 'transform-runtime', 'antd'
+          ]
         }
       }
     ],
-
-  }
+  },
+  debug: true
 };
