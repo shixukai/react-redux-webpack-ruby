@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
+import { LoginActions } from 'actions';
+import {connect} from 'react-redux';
 
 const FormItem = Form.Item;
 const createForm = Form.create;
@@ -19,16 +21,16 @@ class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetch('/api/login', {method: 'GET'});
-    console.log(this)
+    this.props.login();
   }
 
   render() {
+    console.log(this.props.isAuth)
     const { getFieldProps } = this.props.form;
     return (
       <Form inline onSubmit={this.handleSubmit}>
         <FormItem
-          label="账：">
+          label="用户名：">
           <Input placeholder="请输入账户名"
             {...getFieldProps('userName')} />
         </FormItem>
@@ -49,4 +51,8 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {isAuth: state.login.get('isAuth')};
+}
+
+export default connect(mapStateToProps, { ...LoginActions })(Login)

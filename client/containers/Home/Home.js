@@ -11,6 +11,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        <div><Link to="/login">Login</Link></div>
         <div><Link to="/about">About</Link></div>
         <div><Link to="/contact">Contact</Link></div>
         <a href="#" onClick={this.handleClick} >sdasd </a>
