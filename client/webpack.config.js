@@ -31,5 +31,4 @@ devtool: 'source-map',
       }
     ],
   },
-  debug: true
 };

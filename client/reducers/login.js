@@ -10,6 +10,9 @@ export default createReducer(initialState, {
   [actionTypes.LONGIN_REQUEST]: (state, action) => state.merge({
   }),
   [actionTypes.LOGIN_SUCCESS]: (state, action) => state.merge({
-    isAuth: true,
+    isAuth: action.result.success,
+  }),
+  [actionTypes.LOGIN_FAILD]: (state, action) => state.merge({
+    isAuth: action.result.success,
   })
 })
