@@ -10,7 +10,7 @@ module.exports = {
     publicPath: __dirname + '/',
     filename: "bundle.js"
   },
-devtool: 'source-map',
+  devtool: 'source-map', //开启source-map可以去掉debugger模式
   resolve: {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: ['client', 'node_modules']
