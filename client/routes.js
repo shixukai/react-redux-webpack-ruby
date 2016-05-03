@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, hashHistory, IndexRoute } from 'react-router';
 import {
-  App,
   Contact,
   About,
   NotFound
 } from 'components';
 import {
+  App,
   Home,
   Login
 } from 'containers'

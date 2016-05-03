@@ -12,12 +12,12 @@ module.exports = {
   },
   devtool: 'source-map', //开启source-map可以去掉debugger模式
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.css'],
     modulesDirectories: ['client', 'node_modules']
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
       {
         test: /\.js|jsx$/,
         exclude: /node_modules/,
