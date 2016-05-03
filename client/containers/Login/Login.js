@@ -25,7 +25,6 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.props.isAuth)
     const { getFieldProps } = this.props.form;
     return (
       <Form inline onSubmit={this.handleSubmit}>
