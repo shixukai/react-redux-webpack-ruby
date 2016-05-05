@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, hashHistory, IndexRoute } from 'react-router';
+import { Route, Router, hashHistory, IndexRoute } from 'react-router';
 import {
   Contact,
   About,
@@ -12,11 +12,13 @@ import {
 } from 'containers'
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={Home} />
-    <Route path="login" component={Login} />
-    <Route path="about" component={About} />
-    <Route path="contact" component={Contact} />
-    <Route path='*' component={NotFound} />
-  </Route>
+  <Router>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="login" component={Login} />
+      <Route path="about" component={About} />
+      <Route path="contact" component={Contact} />
+    </Route>
+    <Route path="*" component={NotFound} status={404} />
+  </Router>
 );
