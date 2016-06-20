@@ -25,7 +25,7 @@ function callApi(endPoint, fetchInit = {}) {
 
 export default ({ dispatch, getState }) => next => action => {
 
-  const { endPoint, types, ...rest } = action;
+  const { endPoint, fetchInit, types, ...rest } = action;
 
   if (!endPoint) {
     return next(action);
@@ -34,7 +34,7 @@ export default ({ dispatch, getState }) => next => action => {
   const [REQUEST, SUCCESS, FAILD] = types;
   next({ ...rest, type: REQUEST });
 
-  callApi('/login').then(
+  callApi(endPoint, fetchInit).then(
     (successData) => {
       console.log(successData)
       next({ ...rest, type: SUCCESS, result: successData });

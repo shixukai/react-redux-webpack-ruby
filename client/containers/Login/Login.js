@@ -21,17 +21,18 @@ class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.login();
+    console.log('收到表单值：', this.props.form.getFieldsValue());
+    this.props.login(this.props.form.getFieldsValue());
   }
 
   render() {
     const { getFieldProps } = this.props.form;
     return (
-      <Form inline onSubmit={this.handleSubmit}>
+      <Form horizontal onSubmit={this.handleSubmit}>
         <FormItem
-          label="用户名：">
-          <Input placeholder="请输入账户名"
-            {...getFieldProps('userName')} />
+          label="邮箱：">
+          <Input placeholder="请输入邮箱地址"
+            {...getFieldProps('email')} />
         </FormItem>
         <FormItem
           label="密码：">
@@ -41,7 +42,7 @@ class Login extends React.Component {
         <FormItem>
           <label className="ant-checkbox-inline">
             <Checkbox
-              {...getFieldProps('agreement')} />记住我
+              {...getFieldProps('remember_me')} />记住我
           </label>
         </FormItem>
         <Button type="primary" htmlType="submit">登录</Button>
